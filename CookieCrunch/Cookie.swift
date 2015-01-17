@@ -1,18 +1,30 @@
-//
-//  Cookie.swift
-//  CookieCrunch
-//
-//  Created by Apurune on 2015/01/15.
-//  Copyright (c) 2015年 Apurune. All rights reserved.
-//
-
 import SpriteKit
 
-enum CookieType: Int {
-    case Unknown = 0, Croissant, Cupcake, Danish, Donut, Macaroon, SugarCookie
+public enum CookieType: Int {
+    case Unkown = 0, Croissant, Cupcake, Danish, Donut, Macaroon, SugarCookie
+    
+    public var spriteName: String {
+        let spriteNames = [
+            "Croissant",
+            "Cupcake",
+            "Danish",
+            "Donut",
+            "Macaroon",
+            "SugarCookie"
+        ]
+        return spriteNames[rawValue - 1]
+    }
+    
+    public var highLightedSpriteName: String {
+        return spriteName + "-Highlighted"
+    }
+    
+    public static func random() -> CookieType {
+        return CookieType(rawValue: Int(arc4random_uniform(6)) + 1)!
+    }
 }
 
-class Cookie {
+public class Cookie: Printable {
     var column: Int
     var row: Int
     let cookieType: CookieType
@@ -22,5 +34,9 @@ class Cookie {
         self.column = column
         self.row = row
         self.cookieType = cookieType
+    }
+    
+    public var description: String {
+        return "type: \(cookieType) square:(\(column), \(row))"
     }
 }

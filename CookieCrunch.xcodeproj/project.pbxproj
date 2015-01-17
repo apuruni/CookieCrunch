@@ -16,6 +16,7 @@
 		6387136B1A57610A0082C2A7 /* CookieCrunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6387136A1A57610A0082C2A7 /* CookieCrunchTests.swift */; };
 		638713751A5761730082C2A7 /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 638713741A5761730082C2A7 /* Sprites.atlas */; };
 		638713771A6803FB0082C2A7 /* Cookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638713761A6803FB0082C2A7 /* Cookie.swift */; };
+		638713791A69EBCE0082C2A7 /* CookieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638713781A69EBCE0082C2A7 /* CookieTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		6387136A1A57610A0082C2A7 /* CookieCrunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieCrunchTests.swift; sourceTree = "<group>"; };
 		638713741A5761730082C2A7 /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
 		638713761A6803FB0082C2A7 /* Cookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cookie.swift; sourceTree = "<group>"; };
+		638713781A69EBCE0082C2A7 /* CookieTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookieTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			children = (
 				6387136A1A57610A0082C2A7 /* CookieCrunchTests.swift */,
 				638713681A57610A0082C2A7 /* Supporting Files */,
+				638713781A69EBCE0082C2A7 /* CookieTests.swift */,
 			);
 			path = CookieCrunchTests;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6387136B1A57610A0082C2A7 /* CookieCrunchTests.swift in Sources */,
+				638713791A69EBCE0082C2A7 /* CookieTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
