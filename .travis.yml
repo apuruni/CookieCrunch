@@ -2,5 +2,5 @@ language: objective-c
 before_script:
     - brew update && brew upgrade xctool
 xcode_project: CookieCrunch.xcodeproj
-xcode_scheme: CookieCrunchTests
+xcode_scheme: CookieCrunch
 xcode_sdk: iphonesimulator
