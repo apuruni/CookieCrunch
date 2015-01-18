@@ -25,10 +25,10 @@ public enum CookieType: Int {
 }
 
 public class Cookie: Printable, Hashable {
-    var column: Int
-    var row: Int
-    let cookieType: CookieType
-    var sprite: SKSpriteNode?
+    public var column: Int
+    public var row: Int
+    public let cookieType: CookieType
+    public var sprite: SKSpriteNode?
     
     init(column: Int, row: Int, cookieType: CookieType) {
         self.column = column

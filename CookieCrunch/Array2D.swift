@@ -9,6 +9,10 @@ public struct Array2D<T> {
         array = Array<T?>(count: rows * columns, repeatedValue: nil)
     }
     
+    public var count: Int {
+        return array.count
+    }
+    
     public subscript(column: Int, row: Int) -> T? {
         get {
             return array[row * columns + column]
@@ -16,7 +20,6 @@ public struct Array2D<T> {
         
         set {
             array[row * columns + column] = newValue
-            println(array[row * columns + column])
         }
     }
 }

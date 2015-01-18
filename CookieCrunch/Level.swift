@@ -4,13 +4,25 @@ let NumRows = 9
 public class Level {
     private var cookies = Array2D<Cookie>(columns: NumColumns, rows: NumRows)
     
+    public init() {
+        
+    }
+    
     public func cookieAt(column: Int, row: Int) -> Cookie? {
         assert(column >= 0 && column < NumColumns)
         assert(row >= 0 && row < NumRows)
         return cookies[column, row]
     }
     
+    public var cookieCount: Int {
+        return cookies.count
+    }
+    
     public func shuffle() -> Set<Cookie> {
+        return  createInitialCookies()
+    }
+    
+    private func createInitialCookies() -> Set<Cookie> {
         var set = Set<Cookie>()
         
         for row in 0..<NumRows {
