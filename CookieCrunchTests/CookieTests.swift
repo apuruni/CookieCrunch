@@ -13,4 +13,3 @@ class CookieTests : XCTestCase {
         XCTAssertTrue(cookieType.rawValue >= 1 && cookieType.rawValue <= 6)
     }
 }
-

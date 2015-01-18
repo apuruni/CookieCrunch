@@ -28,7 +28,7 @@ class GameViewController: UIViewController {
         // Present the scene.
         skView.presentScene(scene)
         
-        level = Level()
+        level = Level(filename: "Levels/Level_1")
         scene.level = level
         
         beginGame()

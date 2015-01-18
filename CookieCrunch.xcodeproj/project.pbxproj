@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		631CF6CE1A6BEC2D00CD736A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631CF6CD1A6BEC2D00CD736A /* Extensions.swift */; };
 		6347056A1A6A67DE004F3ABE /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634705691A6A67DE004F3ABE /* Set.swift */; };
 		6347056C1A6AA17A004F3ABE /* SetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6347056B1A6AA17A004F3ABE /* SetTests.swift */; };
 		6347056E1A6AA3EE004F3ABE /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6347056D1A6AA3EE004F3ABE /* Level.swift */; };
@@ -23,6 +24,8 @@
 		638713791A69EBCE0082C2A7 /* CookieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638713781A69EBCE0082C2A7 /* CookieTests.swift */; };
 		6387137B1A6A3C240082C2A7 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6387137A1A6A3C240082C2A7 /* Array2D.swift */; };
 		6387137D1A6A3E4E0082C2A7 /* Array2DTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6387137C1A6A3E4E0082C2A7 /* Array2DTests.swift */; };
+		63FFE6D81A6BAE810097F693 /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 63FFE6D71A6BAE810097F693 /* Levels */; };
+		63FFE6DA1A6BEACF0097F693 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE6D91A6BEACF0097F693 /* Tile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		631CF6CD1A6BEC2D00CD736A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		634705691A6A67DE004F3ABE /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		6347056B1A6AA17A004F3ABE /* SetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTests.swift; sourceTree = "<group>"; };
 		6347056D1A6AA3EE004F3ABE /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 		638713781A69EBCE0082C2A7 /* CookieTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookieTests.swift; sourceTree = "<group>"; };
 		6387137A1A6A3C240082C2A7 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
 		6387137C1A6A3E4E0082C2A7 /* Array2DTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2DTests.swift; sourceTree = "<group>"; };
+		63FFE6D71A6BAE810097F693 /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Levels; sourceTree = "<group>"; };
+		63FFE6D91A6BEACF0097F693 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,8 @@
 		6387134D1A5761090082C2A7 /* CookieCrunch */ = {
 			isa = PBXGroup;
 			children = (
+				63FFE6D71A6BAE810097F693 /* Levels */,
+				63FFE6D51A6BAD030097F693 /* Model */,
 				638713741A5761730082C2A7 /* Sprites.atlas */,
 				638713501A5761090082C2A7 /* AppDelegate.swift */,
 				638713541A5761090082C2A7 /* GameScene.swift */,
@@ -105,10 +113,7 @@
 				6387135B1A5761090082C2A7 /* Images.xcassets */,
 				6387135D1A5761090082C2A7 /* LaunchScreen.xib */,
 				6387134E1A5761090082C2A7 /* Supporting Files */,
-				638713761A6803FB0082C2A7 /* Cookie.swift */,
-				6387137A1A6A3C240082C2A7 /* Array2D.swift */,
-				634705691A6A67DE004F3ABE /* Set.swift */,
-				6347056D1A6AA3EE004F3ABE /* Level.swift */,
+				631CF6CD1A6BEC2D00CD736A /* Extensions.swift */,
 			);
 			path = CookieCrunch;
 			sourceTree = "<group>";
@@ -124,12 +129,9 @@
 		638713671A57610A0082C2A7 /* CookieCrunchTests */ = {
 			isa = PBXGroup;
 			children = (
+				63FFE6D61A6BAD1C0097F693 /* Model */,
 				6387136A1A57610A0082C2A7 /* CookieCrunchTests.swift */,
 				638713681A57610A0082C2A7 /* Supporting Files */,
-				638713781A69EBCE0082C2A7 /* CookieTests.swift */,
-				6387137C1A6A3E4E0082C2A7 /* Array2DTests.swift */,
-				6347056B1A6AA17A004F3ABE /* SetTests.swift */,
-				6347056F1A6B9F5C004F3ABE /* LevelTests.swift */,
 			);
 			path = CookieCrunchTests;
 			sourceTree = "<group>";
@@ -140,6 +142,29 @@
 				638713691A57610A0082C2A7 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63FFE6D51A6BAD030097F693 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				638713761A6803FB0082C2A7 /* Cookie.swift */,
+				6387137A1A6A3C240082C2A7 /* Array2D.swift */,
+				634705691A6A67DE004F3ABE /* Set.swift */,
+				6347056D1A6AA3EE004F3ABE /* Level.swift */,
+				63FFE6D91A6BEACF0097F693 /* Tile.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		63FFE6D61A6BAD1C0097F693 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				638713781A69EBCE0082C2A7 /* CookieTests.swift */,
+				6387137C1A6A3E4E0082C2A7 /* Array2DTests.swift */,
+				6347056B1A6AA17A004F3ABE /* SetTests.swift */,
+				6347056F1A6B9F5C004F3ABE /* LevelTests.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63FFE6D81A6BAE810097F693 /* Levels in Resources */,
 				6387135F1A5761090082C2A7 /* LaunchScreen.xib in Resources */,
 				6387135C1A5761090082C2A7 /* Images.xcassets in Resources */,
 				6387135A1A5761090082C2A7 /* Main.storyboard in Resources */,
@@ -244,8 +270,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				638713551A5761090082C2A7 /* GameScene.swift in Sources */,
+				631CF6CE1A6BEC2D00CD736A /* Extensions.swift in Sources */,
 				6347056E1A6AA3EE004F3ABE /* Level.swift in Sources */,
 				638713771A6803FB0082C2A7 /* Cookie.swift in Sources */,
+				63FFE6DA1A6BEACF0097F693 /* Tile.swift in Sources */,
 				6347056A1A6A67DE004F3ABE /* Set.swift in Sources */,
 				638713571A5761090082C2A7 /* GameViewController.swift in Sources */,
 				638713511A5761090082C2A7 /* AppDelegate.swift in Sources */,
