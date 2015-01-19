@@ -18,6 +18,9 @@ class GameScene: SKScene {
     let cookiesLayer = SKNode()
     let tilesLayer = SKNode()
     
+    var swipeFromColumn: Int?
+    var swipeFromRow: Int?
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder) is not used in this app")
     }
@@ -41,6 +44,9 @@ class GameScene: SKScene {
         
         cookiesLayer.position = layerPosition
         gameLayer.addChild(cookiesLayer)
+        
+        swipeFromColumn = nil
+        swipeFromRow = nil
     }
     
     func addSpritesForCookies(cookies: Set<Cookie>) {
@@ -69,4 +75,66 @@ class GameScene: SKScene {
             x: CGFloat(column) * TileWidth + TileWidth / 2,
             y: CGFloat(row) * TileHeight + TileHeight / 2)
     }
-}
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        let touch = touches.anyObject() as UITouch
+        let location = touch.locationInNode(cookiesLayer)
+        let (success, column, row) = convertPoint(location)
+        if success {
+            if let cookie = level.cookieAt(column, row: row) {
+                swipeFromColumn = column
+                swipeFromRow = row
+            }
+        }
+        
+    }
+    
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+        if swipeFromColumn == nil { return }
+        
+        let touch = touches.anyObject() as UITouch
+        let localtion = touch.locationInNode(cookiesLayer)
+        
+        let (succuess, colomn, row) = convertPoint(localtion)
+        if succuess {
+            var horzDelta = 0, verDelta = 0
+            if colomn < swipeFromColumn! {
+                horzDelta = -1
+            } else if colomn > swipeFromColumn! {
+                horzDelta = -1
+            } else if row < swipeFromRow! {
+                verDelta = -1
+            } else if row > swipeFromRow! {
+                verDelta = 1
+            }
+            
+            if horzDelta != 0 || verDelta != 0 {
+                trySwapHorizontal(horzDelta, vertical: verDelta)
+                swipeFromColumn = nil
+            }
+        }
+    }
+    
+    func trySwapHorizontal(horzDetal: Int, vertical verDelta: Int) {
+        let toColumn = swipeFromColumn! + horzDetal
+        let toRow = swipeFromRow! + verDelta
+        
+        if toColumn < 0 || toColumn >= NumColumns { return }
+        if toRow < 0 || toRow >= NumRows { return }
+        
+        if let toCookie = level.cookieAt(toColumn, row: toRow) {
+            if let fromCookie = level.cookieAt(swipeFromColumn!, row: swipeFromRow!) {
+                println("swiping \(fromCookie) with \(toCookie)")
+            }
+        }
+    }
+    
+    func convertPoint(point: CGPoint) -> (success: Bool, column: Int, row: Int) {
+        if point.x >= 0 && point.x < CGFloat(NumColumns) * TileWidth &&
+           point.y >= 0 && point.y < CGFloat(NumRows) * TileHeight {
+            return (true, Int(point.x / TileWidth), Int(point.y / TileHeight))
+        } else {
+            return (false, 0, 0)
+        }
+    }
+ }
