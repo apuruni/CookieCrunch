@@ -21,6 +21,8 @@ class GameScene: SKScene {
     var swipeFromColumn: Int?
     var swipeFromRow: Int?
     
+    var swipeHandler: ((Swap) ->())?
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder) is not used in this app")
     }
@@ -84,6 +86,7 @@ class GameScene: SKScene {
             if let cookie = level.cookieAt(column, row: row) {
                 swipeFromColumn = column
                 swipeFromRow = row
+                println("swipe from cookie: \(cookie)")
             }
         }
         
@@ -101,7 +104,7 @@ class GameScene: SKScene {
             if colomn < swipeFromColumn! {
                 horzDelta = -1
             } else if colomn > swipeFromColumn! {
-                horzDelta = -1
+                horzDelta = 1
             } else if row < swipeFromRow! {
                 verDelta = -1
             } else if row > swipeFromRow! {
@@ -115,6 +118,15 @@ class GameScene: SKScene {
         }
     }
     
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        swipeFromColumn = nil
+        swipeFromRow = nil
+    }
+    
+    override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
+        touchesEnded(touches, withEvent: event)
+    }
+    
     func trySwapHorizontal(horzDetal: Int, vertical verDelta: Int) {
         let toColumn = swipeFromColumn! + horzDetal
         let toRow = swipeFromRow! + verDelta
@@ -125,6 +137,10 @@ class GameScene: SKScene {
         if let toCookie = level.cookieAt(toColumn, row: toRow) {
             if let fromCookie = level.cookieAt(swipeFromColumn!, row: swipeFromRow!) {
                 println("swiping \(fromCookie) with \(toCookie)")
+                if let handler = swipeHandler {
+                    let swap = Swap(cookieA: fromCookie, cookieB: toCookie)
+                    handler(swap)
+                }
             }
         }
     }
@@ -136,5 +152,23 @@ class GameScene: SKScene {
         } else {
             return (false, 0, 0)
         }
+    }
+    
+    func animateSwap(swap: Swap, completion: () -> () ) {
+        let spriteA = swap.cookieA.sprite!
+        let spriteB = swap.cookieB.sprite!
+        
+        spriteA.zPosition = 100
+        spriteB.zPosition = 90
+        
+        let duration: NSTimeInterval = 0.3
+        
+        let moveA = SKAction.moveTo(spriteB.position, duration: duration)
+        moveA.timingMode = .EaseOut
+        spriteA.runAction(moveA,completion: completion)
+        
+        let moveB = SKAction.moveTo(spriteA.position, duration: duration)
+        moveB.timingMode = .EaseOut
+        spriteB.runAction(moveB)
     }
  }

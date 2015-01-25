@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		631CF6CE1A6BEC2D00CD736A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631CF6CD1A6BEC2D00CD736A /* Extensions.swift */; };
+		631CF6D01A74934000CD736A /* Swap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631CF6CF1A74934000CD736A /* Swap.swift */; };
 		6347056A1A6A67DE004F3ABE /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634705691A6A67DE004F3ABE /* Set.swift */; };
 		6347056C1A6AA17A004F3ABE /* SetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6347056B1A6AA17A004F3ABE /* SetTests.swift */; };
 		6347056E1A6AA3EE004F3ABE /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6347056D1A6AA3EE004F3ABE /* Level.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		631CF6CD1A6BEC2D00CD736A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		631CF6CF1A74934000CD736A /* Swap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swap.swift; sourceTree = "<group>"; };
 		634705691A6A67DE004F3ABE /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		6347056B1A6AA17A004F3ABE /* SetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTests.swift; sourceTree = "<group>"; };
 		6347056D1A6AA3EE004F3ABE /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				634705691A6A67DE004F3ABE /* Set.swift */,
 				6347056D1A6AA3EE004F3ABE /* Level.swift */,
 				63FFE6D91A6BEACF0097F693 /* Tile.swift */,
+				631CF6CF1A74934000CD736A /* Swap.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				631CF6CE1A6BEC2D00CD736A /* Extensions.swift in Sources */,
 				6347056E1A6AA3EE004F3ABE /* Level.swift in Sources */,
 				638713771A6803FB0082C2A7 /* Cookie.swift in Sources */,
+				631CF6D01A74934000CD736A /* Swap.swift in Sources */,
 				63FFE6DA1A6BEACF0097F693 /* Tile.swift in Sources */,
 				6347056A1A6A67DE004F3ABE /* Set.swift in Sources */,
 				638713571A5761090082C2A7 /* GameViewController.swift in Sources */,
