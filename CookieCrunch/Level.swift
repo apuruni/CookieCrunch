@@ -79,7 +79,60 @@ public class Level {
     }
     
     private func detectPossibleSwaps() {
-        // TODO
+        var set = Set<Swap>()
+        
+        for row in 0..<NumRows {
+            for column in 0..<NumColumns {
+                if let cookie = cookies[column, row] {
+                    if column < NumColumns - 1 {
+                        if let other = cookies[column + 1, row] {
+                            cookies[column, row] = other
+                            cookies[column + 1, row] = cookie
+                            
+                            if hasChainAt(column: column + 1, row: row) || hasChainAt(column: column, row: row) {
+                                set.addElement(Swap(cookieA: cookie, cookieB: other))
+                            }
+                            
+                            cookies[column, row] = cookie
+                            cookies[column + 1, row] = other
+                        }
+                    }
+                    
+                    if row < NumRows - 1 {
+                        if let other = cookies[column, row + 1] {
+                            cookies[column, row] = other
+                            cookies[column, row + 1] = cookie
+                            
+                            if hasChainAt(column: column, row: row + 1) || hasChainAt(column: column, row: row) {
+                                set.addElement(Swap(cookieA: cookie, cookieB: other))
+                            }
+                            
+                            cookies[column, row] = cookie
+                            cookies[column, row + 1] = other
+                        }
+                    }
+                }
+            }
+        }
+        possibleSwaps = set
+    }
+    
+    private func hasChainAt(#column: Int, row: Int) -> Bool {
+        let cookieType = cookies[column, row]?.cookieType
+        
+        var horzLength = 1
+        for var i = column - 1; i >= 0 && cookies[i, row]?.cookieType == cookieType; --i, ++horzLength {}
+        for var i = column + 1; i < NumColumns && cookies[i, row]?.cookieType == cookieType; ++i, ++horzLength {}
+        if horzLength >= 3 { return true }
+        
+        var vertLength = 1
+        for var i = row - 1; i >= 0 && cookies[column, i]?.cookieType == cookieType; --i, ++vertLength {}
+        for var i = row + 1; i < NumRows && cookies[column, i]?.cookieType == cookieType; ++i, ++vertLength {}
+        return vertLength >= 3
+    }
+    
+    func isPossibleSwap(swap: Swap) -> Bool {
+        return possibleSwaps.containsElement(swap)
     }
     
     func performSwap(swap: Swap){
