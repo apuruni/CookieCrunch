@@ -84,6 +84,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6356CAEC1A791CDE00A0AE6E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				638713541A5761090082C2A7 /* GameScene.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		6356CAED1A791CE900A0AE6E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				638713561A5761090082C2A7 /* GameViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		638713421A5761090082C2A7 = {
 			isa = PBXGroup;
 			children = (
@@ -105,12 +121,12 @@
 		6387134D1A5761090082C2A7 /* CookieCrunch */ = {
 			isa = PBXGroup;
 			children = (
-				63FFE6D71A6BAE810097F693 /* Levels */,
 				63FFE6D51A6BAD030097F693 /* Model */,
+				6356CAEC1A791CDE00A0AE6E /* View */,
+				6356CAED1A791CE900A0AE6E /* Controller */,
+				63FFE6D71A6BAE810097F693 /* Levels */,
 				638713741A5761730082C2A7 /* Sprites.atlas */,
 				638713501A5761090082C2A7 /* AppDelegate.swift */,
-				638713541A5761090082C2A7 /* GameScene.swift */,
-				638713561A5761090082C2A7 /* GameViewController.swift */,
 				638713581A5761090082C2A7 /* Main.storyboard */,
 				6387135B1A5761090082C2A7 /* Images.xcassets */,
 				6387135D1A5761090082C2A7 /* LaunchScreen.xib */,
