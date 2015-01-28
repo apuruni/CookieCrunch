@@ -4,6 +4,7 @@ let NumRows = 9
 public class Level {
     private var cookies = Array2D<Cookie>(columns: NumColumns, rows: NumRows)
     private var tiles = Array2D<Tile>(columns: NumColumns, rows: NumRows)
+    private var possibleSwaps = Set<Swap>()
     
     public init() {
         
@@ -41,7 +42,14 @@ public class Level {
     }
     
     public func shuffle() -> Set<Cookie> {
-        return  createInitialCookies()
+        var set: Set<Cookie>
+        do {
+            set = createInitialCookies()
+            detectPossibleSwaps()
+            println("possible swaps: \(possibleSwaps)")
+        } while possibleSwaps.count == 0
+        
+        return set
     }
     
     private func createInitialCookies() -> Set<Cookie> {
@@ -50,7 +58,12 @@ public class Level {
         for row in 0..<NumRows {
             for column in 0..<NumColumns {
                 if tiles[column, row] != nil {
-                    var cookieType = CookieType.random()
+                    //var cookieType = CookieType.random()
+                    var cookieType: CookieType
+                    do {
+                        cookieType = CookieType.random()
+                    } while willBeChains(column: column, row: row, cookieType: cookieType)
+                    
                     let cookie = Cookie(column: column, row: row, cookieType: cookieType)
                     cookies[column, row] = cookie
                     set.addElement(cookie)
@@ -58,6 +71,15 @@ public class Level {
             }
         }
         return set
+    }
+    
+    private func willBeChains(#column: Int, row: Int, cookieType: CookieType) -> Bool {
+        return (column >= 2 && cookies[column - 1, row]?.cookieType == cookieType && cookies[column - 2, row]?.cookieType == cookieType)
+            || (row >= 2 && cookies[column, row - 1]?.cookieType == cookieType && cookies[column, row - 2]?.cookieType == cookieType)
+    }
+    
+    private func detectPossibleSwaps() {
+        // TODO
     }
     
     func performSwap(swap: Swap){
