@@ -42,11 +42,16 @@ public class Level {
     }
     
     public func shuffle() -> Set<Cookie> {
+        println("cookies.count:\(cookies.count)")
+        
         var set: Set<Cookie>
         do {
             set = createInitialCookies()
+            println("cookies.count:\(cookies.count)")
+            println("set.count:\(set.count)")
             detectPossibleSwaps()
             println("possible swaps: \(possibleSwaps)")
+            println("possibleSwaps.count:\(possibleSwaps.count)")
         } while possibleSwaps.count == 0
         
         return set
@@ -90,6 +95,7 @@ public class Level {
                             cookies[column + 1, row] = cookie
                             
                             if hasChainAt(column: column + 1, row: row) || hasChainAt(column: column, row: row) {
+                                println("swap horz. add cookie(\(column), \(row)) into set")
                                 set.addElement(Swap(cookieA: cookie, cookieB: other))
                             }
                             
@@ -104,6 +110,7 @@ public class Level {
                             cookies[column, row + 1] = cookie
                             
                             if hasChainAt(column: column, row: row + 1) || hasChainAt(column: column, row: row) {
+                                println("swap vert. add cookie(\(column), \(row)) into set")
                                 set.addElement(Swap(cookieA: cookie, cookieB: other))
                             }
                             
@@ -123,6 +130,7 @@ public class Level {
         var horzLength = 1
         for var i = column - 1; i >= 0 && cookies[i, row]?.cookieType == cookieType; --i, ++horzLength {}
         for var i = column + 1; i < NumColumns && cookies[i, row]?.cookieType == cookieType; ++i, ++horzLength {}
+        println("horzLength:\(horzLength)")
         if horzLength >= 3 { return true }
         
         var vertLength = 1
